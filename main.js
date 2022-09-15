@@ -16,28 +16,38 @@ const pointsD = [];
 const pointsE = [];
 const pointsClone = [];
 
-const subjects = ["Math", "literature", "physics", "chemistry", "biology"];
+const subjects = [
+    "Math",
+    "literature",
+    "physics",
+    "chemistry",
+    "biology",
+    "Dia ly",
+];
 
 function getRandomMark(min, max, arr) {
     for (let i = 0; i < subjects.length; i++) {
         arr.push({
             subject: `${subjects[i]}`,
-            score: Math.floor(Math.random() * (max - min + 1) + min) + 0.5,
+            score:
+                Math.floor(Math.random() * (max * 2 - min * 2 + 1) + min * 2) /
+                2,
         });
-        if (arr[i].score >= 10.5) {
-            arr[i].score = 10;
-        }
-        if (arr[i].score <= 5.5) {
-            arr[i].score = 6;
-        }
+
+        // if (arr[i].score %2 === 0) {
+        //     arr[i].score = arr[i].score/2;
+        // } else {}
+        // if (arr[i].score <= 5.5) {
+        //     arr[i].score = 6;
+        // }
     }
     return arr;
 }
-console.log(getRandomMark(5, 10, pointsA));
-console.log(getRandomMark(5, 10, pointsB));
-console.log(getRandomMark(5, 10, pointsC));
-console.log(getRandomMark(5, 10, pointsD));
-console.log(getRandomMark(5, 10, pointsE));
+console.log(getRandomMark(6, 10, pointsA));
+console.log(getRandomMark(6, 10, pointsB));
+console.log(getRandomMark(6, 10, pointsC));
+console.log(getRandomMark(6, 10, pointsD));
+console.log(getRandomMark(6, 10, pointsE));
 
 function pointAverage(arrPoints) {
     var average = 0;
@@ -57,7 +67,7 @@ function pointAverage(arrPoints) {
 }
 
 function clonePoints(arr) {
-    var arrTest = [];
+    const arrTest = [];
     for (let i = 0; i < arr.length; i++) {
         for (let j = 0; j < arr[i].length; j++) {
             arrTest.push(arr[i][j].score);
